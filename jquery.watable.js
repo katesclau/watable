@@ -669,6 +669,14 @@
             if (typeof priv.options.tableCreated == 'function')
                 priv.options.tableCreated.call(_table.get(0), {table: _table.get(0)});
 
+            //trigger callback
+            if (typeof priv.options.pageHasChanged == 'function') {
+                priv.options.pageHasChanged.call(_table, {
+                    page: _currPage,
+                    cols: _data.cols,
+                    rows: _data.rows
+                });
+            }
         };
 
         /*
